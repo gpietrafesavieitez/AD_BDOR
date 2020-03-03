@@ -1,0 +1,671 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\fswiss\fprq2\fcharset0 Liberation Sans{\*\falt Arial};}{\f5\froman\fprq2\fcharset0 Helvetica{\*\falt Arial};}{\f6\fnil\fprq2\fcharset0 AR PL UMing HK;}{\f7\fnil\fprq2\fcharset0 Lohit Devanagari;}{\f8\fnil\fprq0\fcharset128 Lohit Devanagari;}}
+{\colortbl;\red0\green0\blue0;\red128\green128\blue128;}
+{\stylesheet{\s0\snext0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033 Normal;}
+{\s15\sbasedon0\snext16\sb240\sa120\keepn\dbch\af6\dbch\af7\afs28\loch\f4\fs28 Heading;}
+{\s16\sbasedon0\snext16\sl288\slmult1\sb0\sa140 Text Body;}
+{\s17\sbasedon16\snext17\sl288\slmult1\sb0\sa140\dbch\af8 List;}
+{\s18\sbasedon0\snext18\sb120\sa120\noline\i\dbch\af8\afs24\ai\fs24 Caption;}
+{\s19\sbasedon0\snext19\noline\dbch\af8 Index;}
+}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\author oracle }{\revtim\yr2020\mo1\dy14\hr11\min21}{\printim\yr0\mo0\dy0\hr0\min0}{\comment LibreOffice}{\vern67307266}}\deftab720
+\viewscale90
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn11906\pghsxn16838\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\pgdscnxt0 Default Style;}}
+\formshade{\*\pgdscno0}\paperh16838\paperw11906\margl1440\margr1440\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn11906\pghsxn16838\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+{\*\ftnsep}\pgndec\pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs39\loch\f5
+partimos de este codigo para crear unha base de datos seguindo o modelo obxecto relacional . Hai varios erros . tes que correxilos .}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs41\loch\f5
+1.3.2.1. Implementaci\u243\'f3n objeto relacional con Oracle}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs41\loch\f5
+1.3.2.1.1. Creaci\u243\'f3n de tipos}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TABLE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido _tab;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DELETE FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TABLE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DELETE FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TABLE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido _t;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+linea_pedido_t;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+linea_t;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_t;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_t;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lista_tel_t;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+DROP TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lista_tel_t }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+AS VARRAY}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(10) }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+OF }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+VARCHAR2(20) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+AS OBJECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+calle VARCHAR2(200),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+ciudad VARCHAR2(200),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+prov CHAR(2),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+codpos VARCHAR2(20)) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_t }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+AS OBJECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+clinum NUMBER,.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+clinomb VARCHAR2(200),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion direccion_t,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lista_tel lista_tel_t) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_t }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+AS OBJECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+itemnum NUMBER,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+precio NUMBER,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+tasas NUMBER) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+linea_t }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+AS OBJECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+linum NUMBER,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_t,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cantidad NUMBER,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+descuento NUMBER) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lineas_pedido_t }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+AS TABLE OF }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+linea_t ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TYPE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_t }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+AS OBJECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+ordnum NUMBER,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_t,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+fechpedido DATE,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+fechentrega DATE,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido lineas_pedido_t,}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direcentrega direccion_t) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs41\loch\f5
+1.3.2.1.2. Creaci\u243\'f3n de tablas objeto}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+Ahora vamos a crear las tablas donde almacenar los objetos de la aplicaci\u243\'f3n.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TABLE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+OF }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_t}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(clinum }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+PRIMARY KEY}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TABLE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+OF }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_t}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(itemnum }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+PRIMARY KEY}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+CREATE TABLE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+OF }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_t (}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+PRIMARY KEY }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(ordnum),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SCOPE FOR }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(cliente) }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+IS }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+NESTED TABLE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+STORE AS }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+ALTER TABLE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+ADD }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SCOPE FOR }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(item) }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+IS }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+Esta \u250\'faltima declaraci\u243\'f3n sirve para restringir el dominio de los objetos referenciados desde }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+item }{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+a}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+aquellos que se almacenan en la tabla }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+item_tab}{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs41\loch\f5
+1.3.2.2. Inserci\u243\'f3n de objetos}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+inserci\u243\'f3n en la tabla ITEM_TAB************************}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(1004, 6750.00, 2);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(1011, 4500.23, 2);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(1534, 2234.00, 2);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(1535, 3456.23, 2);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(2004, 33750.00, 3);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(3011, 43500.23, 4);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(4534, 5034.00, 6);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(5535, 34456.23, 5);}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+inserci\u243\'f3n en la tabla CLIENTE_TAB*********************}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+N\u243\'f3tese c\u243\'f3mo en estas definiciones se utilizan los constructores del tipo de objeto }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t }{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+y el}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+tipo de colecci\u243\'f3n }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+lista_tel_t}{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+1, 'Lola Caro',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t('12 Calle Lisboa', 'Nules', 'CS', '12678'),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lista_tel_t('415-555-1212')) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+2, 'Jorge Luz',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t('323 Calle Sol', 'Valencia', 'V', '08820'),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lista_tel_t('609-555-1212','201-555-1212')) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+3, 'Juan Perez',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t('12 Calle Colon', 'Castellon', 'ES', '12001'),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lista_tel_t('964-555-1212', '609-543-1212',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+'201-775-1212','964-445-1212')) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+4, 'Ana Gil',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t('5 Calle Sueca', 'Burriana', 'ES', '12345'),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lista_tel_t()) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs37\loch\f5
+REM }{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+inserci\u243\'f3n en la tabla PEDIDO_TAB***************************}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+N\u243\'f3tese c\u243\'f3mo en estas definiciones se utiliza el operador }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF }{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+para obtener una referencia a un objeto}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+de }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab }{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+y almacenarlo en la columna de otro objeto de }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab}{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+. La palabra clave }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+THE }{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+se}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+utiliza para designar la columna de las tuplas que cumplen la condici\u243\'f3n del }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE}{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+, donde se deben}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+realizar la inserci\u243\'f3n. Las tuplas que se insertan son las designadas por el segundo }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT}{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+, y el}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs39\loch\f5
+objeto de la orden debe existir antes de comenzar a insertar l\u237\'edneas de pedido.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+Pedidos del cliente 1**********************************}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+1001, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(C),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+SYSDATE,'10-MAY-1999',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+linea_pedido_t(),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+NULL}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab C}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+C.clinum= 1 ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum = 1001}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+01, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(S), 12, 0}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab S}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+S.itemnum = 1534;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+ordenes_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum = 1001}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+02, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(S), 10, 10}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab S}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+S.itemnum = 1535;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+Pedidos del cliente 2************************************}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+2001, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(C),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+SYSDATE,'20-MAY-1999',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lineas_pedido_t(),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t('55 Madison Ave','Madison','WI','53715')}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab C}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+C.clinum= 2;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum = 2001}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+10, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(S), 1, 0}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab S}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+S.itemnum = 1004;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum= 2001}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+VALUES}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+( linea_t(11, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+NULL}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+, 2, 1) ) ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+Pedidos del cliente 3************************************}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+3001, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(C),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SYSDATE}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+,'30-MAY-1999',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+lineas_pedido_t(),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+NULL}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab C}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+C.clinum= 3 ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum = 3001}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+30, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(S), 18, 30}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+items_tab S}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+S.itemnum = 3011;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum = 3001}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+32, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(S), 10, 100}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab S}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+S.itemnum = 1535;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+*****************************************}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+3002, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(C),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SYSDATE}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+,'15-JUN-1999',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+linea_pedido_t(),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+NULL}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab C}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+C.clinum= 3 ;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum = 3002}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+34, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(S), 200, 10}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab S}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+S.itemnum = 4534;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+Pedidos del cliente 4************************************}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+4001, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(C),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SYSDATE}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+,'12-MAY-1999',}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+linea_pedido_t(),}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+direccion_t('34 Nave Oeste','Nules','CS','12876')}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+cliente_tab C}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+C.clinum= 4;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum = 4001}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+41, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(S), 10, 10}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab S}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+S.itemnum = 2004;}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+INSERT INTO THE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.pedido}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+pedido_tab P}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+P.ordnum = 4001}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+SELECT }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+42, }{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+REF}{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+(S), 32, 22}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+FROM }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+item_tab S}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033{\cf1\b\rtlch \ltrch\loch\fs36\loch\f5
+WHERE }{\cf1\b0\rtlch \ltrch\loch\fs36\loch\f5
+S.itemnum = 5535;}
+\par }

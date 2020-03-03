@@ -1,0 +1,22 @@
+exercicio30 : bdor5
+
+
+desenvolver un proxecto java chmado bdor5 que cree os seguintes metodos traballando cas taboas o exercicio bdorexemploalumnos  
+
+a)metodo insireLinea que insira unha linea de pedido pasandolle como minimo os seguintes datos :
+ordnum, linum,item,cantidad,descuento
+
+probar a inserir unha linea de pedido para o pedido de numero de orden 4001 cos seguintes datos:
+linum: 48
+item : 2004
+cantidad: 20
+descuento: 10
+
+b)
+metodo modificaLinea  que modifique o nome dun cliente pasandolle como minimo o numero do cliente. 
+probar a modificar o nome del cliente 5 para que pase a chamarse'Alvaro Luna'
+
+c) metodo borraLinea que pasandolle como minimo o numero de orde dun pedido e un numero de linea, borre dita linea de dito pedido  
+probar a borrar a linea de pedido (linum)  48 do pedido cuxo ordnum e igual a 4001
+
+
